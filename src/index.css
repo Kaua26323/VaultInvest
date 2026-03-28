@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+:root {
+  --background1: #030303;
+  --background2: #020617;
+  --text-color: #ece5e5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Geist", Helvetica;
+  background: linear-gradient(
+    to bottom,
+    var(--background1),
+    var(--background2)
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  color: var(--text-color);
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
