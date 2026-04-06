@@ -1,0 +1,183 @@
+main {
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+  margin: 0;
+  padding: 0;
+  table-layout: fixed;
+}
+
+.tableContainer {
+  width: 100%;
+}
+
+table th,
+table td {
+  text-align: center;
+  padding: 10px 8px;
+}
+
+.thCols:first-child {
+  border-radius: 8px 0 0 8px;
+}
+.thCols:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.theadeLine {
+  background-color: var(--surface);
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .tableContainer {
+    overflow-x: hidden;
+  }
+
+  table {
+    min-width: 100%;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  .theadeLine {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px;
+  gap: 10px;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+  transform: rotate(45deg);
+  scale: 0.7;
+}
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 0;
+  top: -24px;
+  animation: animloader 4s ease infinite;
+}
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  animation: animloader2 2s ease infinite;
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow:
+      0 24px rgba(255, 255, 255, 0),
+      24px 24px rgba(255, 255, 255, 0),
+      24px 48px rgba(255, 255, 255, 0),
+      0px 48px rgba(255, 255, 255, 0);
+  }
+  12% {
+    box-shadow:
+      0 24px #5d5d5d,
+      24px 24px rgba(255, 255, 255, 0),
+      24px 48px rgba(255, 255, 255, 0),
+      0px 48px rgba(255, 255, 255, 0);
+  }
+  25% {
+    box-shadow:
+      0 24px #5d5d5d,
+      24px 24px #5d5d5d,
+      24px 48px rgba(255, 255, 255, 0),
+      0px 48px rgba(255, 255, 255, 0);
+  }
+  37% {
+    box-shadow:
+      0 24px #5d5d5d,
+      24px 24px #5d5d5d,
+      24px 48px #5d5d5d,
+      0px 48px rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow:
+      0 24px #5d5d5d,
+      24px 24px #5d5d5d,
+      24px 48px #5d5d5d,
+      0px 48px #5d5d5d;
+  }
+  62% {
+    box-shadow:
+      0 24px rgba(255, 255, 255, 0),
+      24px 24px #5d5d5d,
+      24px 48px #5d5d5d,
+      0px 48px #5d5d5d;
+  }
+  75% {
+    box-shadow:
+      0 24px rgba(255, 255, 255, 0),
+      24px 24px rgba(255, 255, 255, 0),
+      24px 48px #5d5d5d,
+      0px 48px #5d5d5d;
+  }
+  87% {
+    box-shadow:
+      0 24px rgba(255, 255, 255, 0),
+      24px 24px rgba(255, 255, 255, 0),
+      24px 48px rgba(255, 255, 255, 0),
+      0px 48px #5d5d5d;
+  }
+  100% {
+    box-shadow:
+      0 24px rgba(255, 255, 255, 0),
+      24px 24px rgba(255, 255, 255, 0),
+      24px 48px rgba(255, 255, 255, 0),
+      0px 48px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes animloader2 {
+  0% {
+    transform: translate(0, 0) rotateX(0) rotateY(0);
+  }
+  25% {
+    transform: translate(100%, 0) rotateX(0) rotateY(180deg);
+  }
+  50% {
+    transform: translate(100%, 100%) rotateX(-180deg) rotateY(180deg);
+  }
+  75% {
+    transform: translate(0, 100%) rotateX(-180deg) rotateY(360deg);
+  }
+  100% {
+    transform: translate(0, 0) rotateX(0) rotateY(360deg);
+  }
+}

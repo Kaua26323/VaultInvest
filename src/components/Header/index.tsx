@@ -1,13 +1,17 @@
+import styles from "./header.module.css";
 import { Container } from "../Container";
 
 export function Header() {
   return (
-    <header>
+    <header className={styles.headerBox}>
       <Container>
-        <div>
-          <a href="/">VaultInvest</a>
+        <div className={styles.headerLinks}>
+          <a href="/">
+            Vault<span>Invest</span>
+          </a>
         </div>
       </Container>
+      <div className={styles.divisorLine}></div>
     </header>
   );
 }

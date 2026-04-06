@@ -3,6 +3,16 @@
   --background1: #030303;
   --background2: #020617;
   --text-color: #ece5e5;
+  --primary: #6274e0;
+  --secondary: #adffff;
+  --accent: #2438bd;
+  --surface: #241571;
+  --border: #4255b2;
+  --box-shadow-color: rgb(173, 255, 255, 0.5);
+
+  --redColor: #ff0000;
+  --darkRedColor: #9b0303;
+  --greenColor: #03e403;
 }
 
 * {
@@ -28,6 +38,7 @@ body {
 
 button {
   cursor: pointer;
+  color: var(--text-color);
 }
 
 a {

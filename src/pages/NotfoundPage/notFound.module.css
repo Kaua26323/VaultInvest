@@ -1,0 +1,54 @@
+.errorPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 150px;
+  padding: 0 20px;
+  gap: 16px;
+  text-align: center;
+}
+
+.errorPage h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.errorPage h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.errorPage h3 {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.links404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  gap: 16px;
+  width: 100%;
+}
+
+.errorPage a {
+  width: 100%;
+  max-width: 250px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--redColor);
+  padding: 12px;
+  border: 2px solid var(--redColor);
+  border-radius: 5px;
+  transition: all 0.5s ease;
+  text-align: center;
+}
+
+.errorPage a:hover {
+  background-color: var(--darkRedColor);
+  color: var(--whiteColor);
+  transform: scale(1.05);
+}

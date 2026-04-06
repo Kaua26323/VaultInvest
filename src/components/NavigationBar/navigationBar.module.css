@@ -1,0 +1,49 @@
+.navigationBox {
+  width: 100%;
+  display: flex;
+  margin-top: 5px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--surface);
+  border-radius: 8px;
+}
+
+.navigationBox button {
+  background-color: transparent;
+  padding: 10px 10px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.navigationBox button:hover {
+  transform: scale(1.2);
+}
+
+.navigationBox button:disabled {
+  color: gray;
+  cursor: not-allowed;
+}
+
+.pagesArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.pagesArea button {
+  background-color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.pagesArea button:hover {
+  transform: scale(1.1);
+  border-color: var(--secondary);
+}
+
+.active {
+  border: 1.5px solid var(--secondary);
+  box-shadow: 0 0 5px var(--secondary);
+}
