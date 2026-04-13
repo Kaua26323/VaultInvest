@@ -3,7 +3,10 @@ import type {
   CryptoDetailsProps,
 } from "../../types/cryptoCoins";
 
-const api = "/api/coingecko";
+const api = import.meta.env.DEV
+  ? "/api/coingecko"
+  : "https://api.coingecko.com/api/v3";
+
 const headers = {
   accept: "application/json",
   "x-cg-demo-api-key": import.meta.env.VITE_API_KEY,
