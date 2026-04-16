@@ -1,11 +1,11 @@
+import { toast } from "sonner";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
-import { toast } from "sonner";
 import styles from "./crypto.module.css";
 import { Container } from "../../components/Container";
 import { getCoinById } from "../../service/getCryptoData";
-import type { CryptoDetailsProps } from "../../types/cryptoCoins";
 import { formatNum, compactPrice } from "../../utils/formatNumbers";
+import type { CryptoDetailsProps } from "../../types/cryptoCoins";
 
 export function CryptoDetails() {
   const { id } = useParams();
@@ -19,19 +19,19 @@ export function CryptoDetails() {
       try {
         const data = await getCoinById(id);
         setCoin(data);
-        console.log("Coin:");
-        console.log(coin);
       } catch (err: any) {
-        console.log("!!Error!!");
-        console.error(err);
-        if (err.message === "429") {
+        if (err.message === "Failed to fetch") {
           toast.error("Many requests. Wait a moment and try again.");
-
-          return navigate("/", { replace: true });
-        } else {
-          toast.error(err.message);
           return navigate("/", { replace: true });
         }
+
+        if (err.message === "429") {
+          toast.error("Many requests. Wait a moment and try again.");
+          return navigate("/", { replace: true });
+        }
+
+        toast.error("An unexpected error occurred.");
+        return navigate("/", { replace: true });
       } finally {
         setIsLoading(false);
       }

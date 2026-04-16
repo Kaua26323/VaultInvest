@@ -1,5 +1,5 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./navigationBar.module.css";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface NavigationBarProps {
   changePage: (page: number) => void;

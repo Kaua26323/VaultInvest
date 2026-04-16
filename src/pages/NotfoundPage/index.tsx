@@ -1,6 +1,6 @@
-import { Container } from "../../components/Container";
-import styles from "./notFound.module.css";
 import { Link } from "react-router";
+import styles from "./notFound.module.css";
+import { Container } from "../../components/Container";
 
 export function NotFoundPage() {
   return (

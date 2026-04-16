@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
 import styles from "./home.module.css";
+import { toast } from "sonner";
+import { useState, useEffect } from "react";
+import { getMarkets } from "../../service/getCryptoData";
 import { Container } from "../../components/Container";
 import { SearchBar } from "../../components/SearchBar";
 import { NavigationBar } from "../../components/NavigationBar/index";
 import { TableTrElements } from "../../components/TableTrElements";
 import type { CryptoCoinsProps } from "../../types/cryptoCoins";
-import { getMarkets } from "../../service/getCryptoData";
-import { toast } from "sonner";
 
 export function Home() {
   const [coins, setCoins] = useState<CryptoCoinsProps[]>();
@@ -24,11 +24,15 @@ export function Home() {
 
         setIsLastPage(data.length < 10);
       } catch (err: any) {
-        console.log("!!Error!!");
-        console.error(err);
+        if (err.message === "Failed to fetch") {
+          return toast.error("Many requests. Wait a moment and try again.");
+        }
+
         if (err.message === "429") {
           return toast.error("Many requests. Wait a moment and try again.");
-        } else return toast.error(err.message);
+        }
+
+        return toast.error("An unexpected error occurred.");
       } finally {
         setIsLoading(false);
       }
