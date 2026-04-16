@@ -13,6 +13,43 @@ The application allows users to view an organized list of digital assets, includ
 
 A significant technical highlight is the inclusion of **unit tests**, ensuring component reliability and correct data rendering, alongside rigorous error handling to manage the API's Rate Limiting constraints.
 
+## 🔄 Evolution & Key Improvements
+
+The **VaultInvest** represents a significant upgrade over its predecessor, [CryptoCoin](https://github.com/Kaua26323/CryptoCoin). This refactoring focused on implementing industry-standard practices, modernizing the stack, and ensuring application stability.
+
+### 1. Quality Assurance & Automated Testing (Core Achievement)
+
+The most critical milestone of this project is the introduction of a comprehensive testing suite. Unlike the previous version, VaultInvest utilizes **Vitest** and **React Testing Library** to ensure component reliability and data integrity.
+
+- **Code Coverage:** Implementation of automated reports (`npm run test:coverage`) to monitor and maintain high quality across the business logic.
+- **Reliability:** Unit tests now guarantee that core features, such as search and pagination, remain functional after new updates.
+
+### 2. Software Architecture & Separation of Concerns
+
+Inspired by **Clean Architecture** principles, the project structure was reorganized to be modular and maintainable:
+
+- **`src/service/`**: Isolated layer for HTTP communication, decoupling API calls from components.
+- **`src/types/`**: Centralized TypeScript interfaces to ensure strict type safety across the entire application.
+- **`src/utils/`**: Dedicated directory for pure utility functions (currency formatting), keeping the UI logic clean.
+
+### 3. Modernized Tech Stack & Ecosystem
+
+Upgraded to high-performance libraries to improve both user experience and bundle efficiency:
+
+- **Notifications:** Replaced _React Toastify_ with **Sonner** for a more lightweight, performant, and elegant toast management.
+- **Iconography:** Migrated from _React Icons_ to **Lucide React**, ensuring a consistent and tree-shakeable icon set.
+
+### 4. Data Fetching & Security
+
+Improved handling of external data:
+
+- **API Transition:** Switched to **CoinGecko API** for more robust and detailed market data points.
+- **Resilience:** Implemented explicit logic for **HTTP 429 (Rate Limiting)**, ensuring the user receives clear, non-intrusive feedback when API limits are reached.
+
+### 5. Advanced SEO
+
+Implemented a robust SEO strategy using semantic HTML and metadata optimization, significantly improving search engine indexing and social media shareability compared to the initial version.
+
 ## ✨ Features
 
 - **Current Data Querying:** Cryptocurrency listing with data fetched directly from the CoinGecko API.
