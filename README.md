@@ -44,7 +44,7 @@ A significant technical highlight is the inclusion of **unit tests**, ensuring c
 
 ```bash
 # Clone the repository
-git clone [https://github.com/Kaua26323/VaultInvest.git](https://github.com/Kaua26323/VaultInvest.git)
+git clone https://github.com/Kaua26323/VaultInvest.git
 
 # Navigate to the project directory
 cd VaultInvest
