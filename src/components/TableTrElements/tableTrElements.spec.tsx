@@ -49,7 +49,7 @@ describe("testing the TableTrElements Component (Unit)", () => {
     expect(screen.getByText(`${(2.5).toFixed(2)}%`)).toBeInTheDocument();
   });
 
-  it("should apply 'valueGoingUp' class when percentage is greater than 0", () => {
+  it("should apply 'valueGoingUp' className when percentage is greater than 0", () => {
     renderComponent({ ...defaultProps, price_change_percentage_24h: 5.25 });
 
     const percentageCell = screen.getByText("5.25%");
@@ -57,7 +57,7 @@ describe("testing the TableTrElements Component (Unit)", () => {
     expect(percentageCell.className).toMatch("valueGoingUp");
   });
 
-  it("should apply 'valueDrop' class when percentage is less than 0", () => {
+  it("should apply 'valueDrop' className when percentage is less than 0", () => {
     renderComponent({ ...defaultProps, price_change_percentage_24h: -3.45 });
 
     const percentageCell = screen.getByText("-3.45%");
@@ -67,8 +67,8 @@ describe("testing the TableTrElements Component (Unit)", () => {
   it("should render 'N/A' when market_cap or current_price are missing", () => {
     renderComponent({
       ...defaultProps,
-      market_cap: 0, // Falsy
-      current_price: 0, // Falsy
+      market_cap: 0,
+      current_price: 0,
     });
 
     const notAvailableCells = screen.getAllByText("N/A");

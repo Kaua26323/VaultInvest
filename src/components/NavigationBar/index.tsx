@@ -41,6 +41,7 @@ export function NavigationBar({
         {dynamicPages.map((pageNumber) => (
           <button
             key={pageNumber}
+            aria-label={`page number ${pageNumber}`}
             onClick={() => changePage(pageNumber)}
             className={`${pageNumber === currentPage ? styles.active : ""}`}
             disabled={disabled || (isLastPage && pageNumber > currentPage)}

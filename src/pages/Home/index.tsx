@@ -24,15 +24,11 @@ export function Home() {
 
         setIsLastPage(data.length < 10);
       } catch (err: any) {
-        if (err.message === "Failed to fetch") {
-          return toast.error("Many requests. Wait a moment and try again.");
+        if (err.message === "Failed to fetch" || err.message === "429") {
+          return toast.error("Many requests. Wait a moment and try again");
         }
 
-        if (err.message === "429") {
-          return toast.error("Many requests. Wait a moment and try again.");
-        }
-
-        return toast.error("An unexpected error occurred.");
+        return toast.error("An unexpected error occurred");
       } finally {
         setIsLoading(false);
       }

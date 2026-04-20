@@ -63,9 +63,9 @@ describe("testing the homepage (Unity)", () => {
     expect(screen.getByText(`${(2.5).toFixed(2)}%`)).toBeInTheDocument();
   });
 
-  describe("Tests errors on the home page", () => {
-    it("should show specific error toast when API returns 429", async () => {
-      (getMarkets as any).mockRejectedValue(new Error("429"));
+  describe("Error Handling Logic (Home page)", () => {
+    it("should show specific error toast when API returns 'Failed to fetch' error", async () => {
+      (getMarkets as any).mockRejectedValue(new Error("Failed to fetch"));
 
       render(
         <MemoryRouter>
@@ -75,13 +75,13 @@ describe("testing the homepage (Unity)", () => {
 
       await waitFor(() => {
         expect(toast.error).toHaveBeenCalledWith(
-          "Many requests. Wait a moment and try again.",
+          "Many requests. Wait a moment and try again",
         );
       });
     });
 
-    it("should show a toast generic error", async () => {
-      (getMarkets as any).mockRejectedValue(new Error("Something went wrong!"));
+    it("should show specific error toast when API returns '429' error", async () => {
+      (getMarkets as any).mockRejectedValue(new Error("429"));
       render(
         <MemoryRouter>
           <Home />
@@ -89,7 +89,24 @@ describe("testing the homepage (Unity)", () => {
       );
 
       await waitFor(() => {
-        expect(toast.error).toHaveBeenCalledWith("Something went wrong!");
+        expect(toast.error).toHaveBeenCalledWith(
+          "Many requests. Wait a moment and try again",
+        );
+      });
+    });
+
+    it("should show specific error toast when API returns an unexpected error", async () => {
+      (getMarkets as any).mockRejectedValue(new Error("An unexpected error"));
+      render(
+        <MemoryRouter>
+          <Home />
+        </MemoryRouter>,
+      );
+
+      await waitFor(() => {
+        expect(toast.error).toHaveBeenCalledWith(
+          "An unexpected error occurred",
+        );
       });
     });
   });

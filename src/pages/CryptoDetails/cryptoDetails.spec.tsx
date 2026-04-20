@@ -1,9 +1,10 @@
-import { render, screen, waitFor } from "@testing-library/react";
-import { useNavigate, useParams } from "react-router";
 import { toast } from "sonner";
 import { CryptoDetails } from "./index";
-import { getCoinById } from "../../service/getCryptoData";
-import { formatNum, compactPrice } from "../../utils/formatNumbers";
+import { useNavigate, useParams } from "react-router";
+import { render, screen, waitFor } from "@testing-library/react";
+
+import { getCoinById } from "@/service/getCryptoData";
+import { formatNum, compactPrice } from "@/utils/formatNumbers";
 import type { CryptoDetailsProps } from "@/types/cryptoCoins";
 
 vi.mock("../../service/getCryptoData", () => ({
@@ -72,10 +73,22 @@ describe("testing the CryptoDetails Page (Unit/Integration)", () => {
 
     const percentageElement = screen.getByText("3.45%");
     expect(percentageElement).toBeInTheDocument();
+  });
+
+  it("should apply 'valueGoingUp' className when percentage is greater than 0", async () => {
+    vi.mocked(getCoinById).mockResolvedValue(mockCoinData);
+
+    render(<CryptoDetails />);
+
+    await waitFor(() => {
+      expect(screen.queryByText("Loading...")).not.toBeInTheDocument();
+    });
+
+    const percentageElement = screen.getByText("3.45%");
     expect(percentageElement.className).toMatch("valueGoingUp");
   });
 
-  it("should apply 'valueDrop' class when percentage is negative", async () => {
+  it("should apply 'valueDrop' className when percentage is negative", async () => {
     const negativeData = {
       ...mockCoinData,
       market_data: {
@@ -95,30 +108,41 @@ describe("testing the CryptoDetails Page (Unit/Integration)", () => {
     expect(percentageElement.className).toMatch("valueDrop");
   });
 
-  describe("Error Handling Logic", () => {
-    it("should display specific toast and redirect home on 429 error", async () => {
-      vi.mocked(getCoinById).mockRejectedValue(new Error("429"));
+  describe("Error Handling Logic (CryptoDetails)", () => {
+    it("should display specific toast and redirect home on 'Failed to fetch' error", async () => {
+      vi.mocked(getCoinById).mockRejectedValue(new Error("Failed to fetch"));
 
       render(<CryptoDetails />);
 
       await waitFor(() => {
         expect(toast.error).toHaveBeenCalledWith(
-          "Many requests. Wait a moment and try again.",
+          "Many requests. Wait a moment and try again",
         );
         expect(mockNavigate).toHaveBeenCalledWith("/", { replace: true });
       });
     });
+  });
 
-    it("should display generic toast and redirect home on generic error", async () => {
-      const errorMessage = "Internal Server Error";
-      vi.mocked(getCoinById).mockRejectedValue(new Error(errorMessage));
+  it("should display specific toast and redirect home on '429' error", async () => {
+    vi.mocked(getCoinById).mockRejectedValue(new Error("429"));
 
-      render(<CryptoDetails />);
+    render(<CryptoDetails />);
 
-      await waitFor(() => {
-        expect(toast.error).toHaveBeenCalledWith(errorMessage);
-        expect(mockNavigate).toHaveBeenCalledWith("/", { replace: true });
-      });
+    await waitFor(() => {
+      expect(toast.error).toHaveBeenCalledWith(
+        "Many requests. Wait a moment and try again",
+      );
+      expect(mockNavigate).toHaveBeenCalledWith("/", { replace: true });
+    });
+  });
+
+  it("should display generic toast and redirect home on an unexpected error", async () => {
+    vi.mocked(getCoinById).mockRejectedValue(new Error("An unexpected error"));
+    render(<CryptoDetails />);
+
+    await waitFor(() => {
+      expect(toast.error).toHaveBeenCalledWith("An unexpected error occurred");
+      expect(mockNavigate).toHaveBeenCalledWith("/", { replace: true });
     });
   });
 });
