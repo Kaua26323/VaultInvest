@@ -1,7 +1,7 @@
 type DefaultButtonProps = {
-  children: React.ReactNode;
+  text: string;
 } & React.ComponentProps<"button">;
 
-export function DefaultButton({ children, ...props }: DefaultButtonProps) {
-  return <button {...props}>{children}</button>;
+export function DefaultButton({ text, ...props }: DefaultButtonProps) {
+  return <button {...props}>{text}</button>;
 }
