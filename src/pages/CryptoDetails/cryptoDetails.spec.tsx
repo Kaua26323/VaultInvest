@@ -5,7 +5,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 
 import { getCoinById } from "@/service/getCryptoData";
 import { formatNum, compactPrice } from "@/utils/formatNumbers";
-import type { CryptoDetailsProps } from "@/types/cryptoCoins";
+import type { CryptoDetailsProps } from "@/types/cryptoDetailsProps";
 
 vi.mock("../../service/getCryptoData", () => ({
   getCoinById: vi.fn(),
@@ -75,7 +75,7 @@ describe("testing the CryptoDetails Page (Unit/Integration)", () => {
     expect(percentageElement).toBeInTheDocument();
   });
 
-  it("should apply 'valueGoingUp' className when percentage is greater than 0", async () => {
+  it("should apply 'valueGoingUp' className when percentage is positive", async () => {
     vi.mocked(getCoinById).mockResolvedValue(mockCoinData);
 
     render(<CryptoDetails />);

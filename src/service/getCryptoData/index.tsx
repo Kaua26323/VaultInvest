@@ -1,7 +1,7 @@
 import type {
   CryptoCoinsProps,
   CryptoDetailsProps,
-} from "../../types/cryptoCoins";
+} from "../../types/cryptoCoinsProps";
 
 const api = import.meta.env.DEV
   ? "/api/coingecko"

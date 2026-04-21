@@ -6,7 +6,7 @@ import { Container } from "../../components/Container";
 import { SearchBar } from "../../components/SearchBar";
 import { NavigationBar } from "../../components/NavigationBar/index";
 import { TableTrElements } from "../../components/TableTrElements";
-import type { CryptoCoinsProps } from "../../types/cryptoCoins";
+import type { CryptoCoinsProps } from "../../types/cryptoCoinsProps";
 
 export function Home() {
   const [coins, setCoins] = useState<CryptoCoinsProps[]>();

@@ -2,16 +2,21 @@ import { toast } from "sonner";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import styles from "./crypto.module.css";
+
 import { Container } from "@/components/Container";
+import { DefaultButton } from "@/components/DefaultButton";
+import { useFavorites } from "@/hooks/useFavorites";
 import { getCoinById } from "@/service/getCryptoData";
 import { formatNum, compactPrice } from "@/utils/formatNumbers";
-import type { CryptoDetailsProps } from "@/types/cryptoCoins";
+import type { CryptoDetailsProps } from "@/types/cryptoDetailsProps";
 
 export function CryptoDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [coin, setCoin] = useState<CryptoDetailsProps>();
   const [isLoading, setIsLoading] = useState(false);
+  const [coin, setCoin] = useState<CryptoDetailsProps>();
+
+  const { isFavorite, saveCrypto, removeCrypto } = useFavorites();
 
   useEffect(() => {
     async function loadApi() {
@@ -33,6 +38,29 @@ export function CryptoDetails() {
     }
     loadApi();
   }, [id]);
+
+  function handleSaveCrypto() {
+    if (!coin) {
+      toast.error("Invalid crypto!");
+      return;
+    }
+
+    saveCrypto({
+      id: coin.id,
+      name: coin.name,
+      image: coin.image.large,
+      symbol: coin.symbol,
+    });
+  }
+
+  function handleRemoveCrypto() {
+    if (!coin?.id) {
+      toast.error("CryptoID is invalid");
+      return;
+    }
+
+    removeCrypto(coin.id);
+  }
 
   return (
     <Container>
@@ -93,6 +121,14 @@ export function CryptoDetails() {
               </span>
             </h2>
           </section>
+          {isFavorite(coin.id) ? (
+            <DefaultButton
+              text="Remove from Favorites"
+              onClick={handleRemoveCrypto}
+            />
+          ) : (
+            <DefaultButton text="Add to favorites" onClick={handleSaveCrypto} />
+          )}
         </main>
       )}
     </Container>

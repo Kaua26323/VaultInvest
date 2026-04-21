@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import styles from "./tableTrTd.module.css";
-import type { CryptoCoinsProps } from "../../types/cryptoCoins";
+import type { CryptoCoinsProps } from "../../types/cryptoCoinsProps";
 import { formatNum, compactPrice } from "../../utils/formatNumbers";
 
 export function TableTrElements({
