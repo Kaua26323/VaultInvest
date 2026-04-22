@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import styles from "./header.module.css";
 import { Container } from "../Container";
 
@@ -6,9 +7,13 @@ export function Header() {
     <header className={styles.headerBox}>
       <Container>
         <div className={styles.headerLinks}>
-          <a href="/">
+          <Link to="/" className={styles.logoLink}>
             Vault<span>Invest</span>
-          </a>
+          </Link>
+
+          <Link to="/favorites" className={styles.link}>
+            Favorites
+          </Link>
         </div>
       </Container>
       <div className={styles.divisorLine}></div>

@@ -7,24 +7,38 @@
 .headerLinks {
   height: 80px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
 }
 
-.headerLinks a {
+.logoLink {
   font-size: 2rem;
   font-weight: bold;
-
-  span {
-    color: var(--primary);
-    transition: all 0.5s ease;
-  }
+  transition: all 0.5s ease;
 }
 
-.headerLinks a:hover {
+.logoLink span {
+  color: var(--primary);
+  transition: all 0.5s ease;
+}
+
+.logoLink:hover {
+  transform: scale(1.1);
+
   span {
     color: var(--secondary);
   }
+}
+
+.link {
+  font-size: 1.6rem;
+  font-weight: bold;
+  transition: all 0.5s ease;
+}
+
+.link:hover {
+  transform: scale(1.1);
+  filter: brightness(60%);
 }
 
 .divisorLine {
