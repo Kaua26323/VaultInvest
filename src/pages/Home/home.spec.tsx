@@ -35,6 +35,7 @@ describe("testing the homepage (Unity)", () => {
 
   it("should display loading state initially", async () => {
     (getMarkets as any).mockReturnValue(new Promise(() => {}));
+
     render(
       <MemoryRouter>
         <Home />

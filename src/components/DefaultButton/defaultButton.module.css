@@ -1,17 +1,31 @@
 .button {
   width: 100%;
-  max-width: 400px;
   padding: 14px 5px;
   font-size: 1rem;
   font-weight: bold;
-  border: 1px solid var(--primary);
+  background: transparent;
   border-radius: 5px;
-  background-color: var(--surface);
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
-.button:hover {
+.blue {
+  background-color: var(--surface);
+  border: 1px solid var(--primary);
+}
+
+.blue:hover {
   transform: scale(1.01);
-  box-shadow: 0 0 5px var(--secondary);
+  box-shadow: 0 0 10px var(--secondary);
   background-color: var(--accent);
+}
+
+.red {
+  background-color: var(--darkRedColor);
+  border: 1px solid var(--redColor);
+}
+
+.red:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 10px var(--redColor);
+  background-color: var(--redColor);
 }
