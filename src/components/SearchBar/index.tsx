@@ -2,6 +2,7 @@ import { toast } from "sonner";
 import { useRef } from "react";
 import { useNavigate } from "react-router";
 import styles from "./searchBar.module.css";
+import { DefaultButton } from "../DefaultButton";
 
 export function SearchBar() {
   const coinValue = useRef<HTMLInputElement>(null);
@@ -26,9 +27,8 @@ export function SearchBar() {
         placeholder="Type the cryptocurrency"
         ref={coinValue}
       />
-      <button type="submit" aria-label="search button">
-        Search
-      </button>
+
+      <DefaultButton type="submit" maxWidth={"80px"} text="Search" />
     </form>
   );
 }

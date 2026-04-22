@@ -1,7 +1,7 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { useNavigate } from "react-router";
 import { toast } from "sonner";
 import { SearchBar } from "./index";
+import { useNavigate } from "react-router";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 vi.mock("react-router", () => ({
   useNavigate: vi.fn(),
@@ -27,15 +27,13 @@ describe("testing the SearchBar Component (Unit)", () => {
     expect(
       screen.getByPlaceholderText("Type the cryptocurrency"),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole("button", { name: "search button" }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Search" })).toBeInTheDocument();
   });
 
   it("should display an error toast and block navigation if input is empty", () => {
     render(<SearchBar />);
 
-    const submitButton = screen.getByRole("button", { name: "search button" });
+    const submitButton = screen.getByRole("button", { name: "Search" });
 
     fireEvent.click(submitButton);
 
@@ -47,7 +45,7 @@ describe("testing the SearchBar Component (Unit)", () => {
     render(<SearchBar />);
 
     const input = screen.getByPlaceholderText("Type the cryptocurrency");
-    const submitButton = screen.getByRole("button", { name: "search button" });
+    const submitButton = screen.getByRole("button", { name: "Search" });
 
     fireEvent.change(input, { target: { value: "   " } });
     fireEvent.click(submitButton);
@@ -60,7 +58,7 @@ describe("testing the SearchBar Component (Unit)", () => {
     render(<SearchBar />);
 
     const input = screen.getByPlaceholderText("Type the cryptocurrency");
-    const submitButton = screen.getByRole("button", { name: "search button" });
+    const submitButton = screen.getByRole("button", { name: "Search" });
 
     fireEvent.change(input, { target: { value: "BITCOIN" } });
     fireEvent.click(submitButton);

@@ -20,18 +20,3 @@
 .searchBox input:focus {
   box-shadow: 0 0 5px var(--secondary);
 }
-
-.searchBox button {
-  background-color: var(--primary);
-  color: var(--text);
-  font-weight: bold;
-  padding: 15px 15px;
-  border-radius: 3px;
-  border: none;
-  transition: all 0.3s ease;
-}
-
-.searchBox button:hover {
-  transform: scale(1.01);
-  box-shadow: 0 0 5px var(--secondary);
-}
