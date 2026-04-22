@@ -36,21 +36,17 @@
   color: var(--redColor);
 }
 
-/* Mantenha seu CSS atual do .trLine, .imageArea, etc. */
-
 @media (max-width: 768px) {
   .trLine {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1rem; /* Espaço entre os cards */
+    margin-bottom: 1rem;
     padding: 10px;
     border-radius: 8px !important;
   }
 
   .trLine:hover {
-    transform: scale(
-      1.01
-    ); /* Diminui o scale no mobile para não cortar a tela */
+    transform: scale(1.01);
   }
 
   .trLine td {
@@ -59,20 +55,19 @@
     align-items: center;
     text-align: right;
     padding: 10px 5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separador sutil opcional */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .trLine td:last-child {
     border-bottom: none;
   }
 
-  /* Criação do cabeçalho dinâmico para cada célula baseado no atributo HTML */
   .trLine td::before {
     content: attr(data-label);
     font-weight: 600;
     text-align: left;
     padding-right: 15px;
-    color: #a0a0a0; /* Ajuste para a cor secundária (texto cinza) da sua paleta */
+    color: #a0a0a0;
   }
 
   .imageArea {

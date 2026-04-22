@@ -18,17 +18,8 @@ export function TableTrElements({
   return (
     <tr className={styles.trLine} key={id}>
       <td data-label="Asset">
-        <Link
-          to={`/crypto/${id}`}
-          className={styles.imageArea}
-          aria-label="link"
-        >
-          <img
-            src={image}
-            alt={name}
-            className={styles.image}
-            aria-label="imageCoin"
-          />
+        <Link to={`/crypto/${id}`} className={styles.imageArea}>
+          <img src={image} alt={`${name} logo`} className={styles.image} />
           <span>
             {name} | {symbol.toUpperCase()}
           </span>

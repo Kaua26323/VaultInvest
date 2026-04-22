@@ -33,7 +33,7 @@ describe("testing the TableTrElements Component (Unit)", () => {
     const linkElement = screen.getByRole("link");
     expect(linkElement).toHaveAttribute("href", "/crypto/bitcoin");
 
-    expect(screen.getByRole("img", { name: "imageCoin" })).toHaveAttribute(
+    expect(screen.getByRole("img", { name: "Bitcoin logo" })).toHaveAttribute(
       "src",
       "btc-image-url.png",
     );
