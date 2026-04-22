@@ -8,6 +8,7 @@ import { useFavorites } from "@/hooks/useFavorites";
 import { getFavoritesCryptosPrices } from "@/service/getCryptoData";
 import type { CryptoPricesProps } from "@/types/favoriteCrypto";
 import { formatNum } from "@/utils/formatNumbers";
+import { DefaultButton } from "@/components/DefaultButton";
 
 export function Favorites() {
   const { favorites, removeCrypto } = useFavorites();
@@ -88,13 +89,11 @@ export function Favorites() {
                   </div>
                 </Link>
 
-                <button
-                  className={styles.removeBtn}
+                <DefaultButton
+                  text="Remove"
+                  variant="underline"
                   onClick={() => removeCrypto(coin.id)}
-                  title="Remove from favorites"
-                >
-                  Remove
-                </button>
+                />
               </article>
             ))}
           </section>

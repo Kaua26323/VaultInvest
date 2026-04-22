@@ -8,24 +8,38 @@
   transition: all 0.5s ease;
 }
 
-.blue {
+.primary {
   background-color: var(--surface);
   border: 1px solid var(--primary);
 }
 
-.blue:hover {
+.primary:hover {
   transform: scale(1.01);
   box-shadow: 0 0 10px var(--secondary);
   background-color: var(--accent);
 }
 
-.red {
+.secondary {
   background-color: var(--darkRedColor);
   border: 1px solid var(--redColor);
 }
 
-.red:hover {
+.secondary:hover {
   transform: scale(1.01);
   box-shadow: 0 0 10px var(--redColor);
   background-color: var(--redColor);
+}
+
+.underline {
+  background-color: transparent;
+  border: 1.5px solid var(--redColor);
+  padding: 10px;
+  font-size: 0.9rem;
+  color: var(--redColor);
+}
+
+.underline:hover {
+  color: white;
+  background-color: var(--redColor);
+  box-shadow: 0 0 10px var(--redColor);
 }

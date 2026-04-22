@@ -123,11 +123,17 @@ export function CryptoDetails() {
           </section>
           {isFavorite(coin.id) ? (
             <DefaultButton
+              maxWidth={"400px"}
+              variant="secondary"
               text="Remove from Favorites"
               onClick={handleRemoveCrypto}
             />
           ) : (
-            <DefaultButton text="Add to favorites" onClick={handleSaveCrypto} />
+            <DefaultButton
+              maxWidth={"400px"}
+              text="Add to favorites"
+              onClick={handleSaveCrypto}
+            />
           )}
         </main>
       )}

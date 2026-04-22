@@ -114,23 +114,6 @@
   }
 }
 
-.removeBtn {
-  background-color: transparent;
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: var(--redColor);
-  padding: 10px;
-  border: 1.5px solid var(--redColor);
-  border-radius: 4px;
-
-  transition: all 0.3s ease;
-}
-
-.removeBtn:hover {
-  background-color: var(--redColor);
-  color: white;
-}
-
 .emptyState {
   display: flex;
   flex-direction: column;
