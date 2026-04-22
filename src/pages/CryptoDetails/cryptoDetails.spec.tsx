@@ -71,7 +71,7 @@ describe("testing the CryptoDetails Page (Unit/Integration)", () => {
       screen.getByText(compactPrice.format(1000000000)),
     ).toBeInTheDocument();
 
-    const percentageElement = screen.getByText("3.45%");
+    const percentageElement = screen.getByText("+3.45%");
     expect(percentageElement).toBeInTheDocument();
   });
 
@@ -84,7 +84,7 @@ describe("testing the CryptoDetails Page (Unit/Integration)", () => {
       expect(screen.queryByText("Loading...")).not.toBeInTheDocument();
     });
 
-    const percentageElement = screen.getByText("3.45%");
+    const percentageElement = screen.getByText("+3.45%");
     expect(percentageElement.className).toMatch("valueGoingUp");
   });
 

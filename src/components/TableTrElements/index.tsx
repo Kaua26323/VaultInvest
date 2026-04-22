@@ -14,6 +14,10 @@ export function TableTrElements({
   price_change_percentage_24h,
 }: CryptoCoinsProps) {
   const safePercentage = price_change_percentage_24h ?? 0;
+  const displayPercentage =
+    Number(safePercentage.toFixed(2)) === 0
+      ? "0.00%"
+      : `${safePercentage.toFixed(2)}%`;
 
   return (
     <tr className={styles.trLine} key={id}>
@@ -38,7 +42,8 @@ export function TableTrElements({
         data-label="24h change"
         className={`${safePercentage > 0 ? styles.valueGoingUp : styles.valueDrop}`}
       >
-        {safePercentage.toFixed(2)}%
+        {safePercentage > 0 ? "+" : ""}
+        {displayPercentage}
       </td>
     </tr>
   );

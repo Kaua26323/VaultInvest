@@ -54,10 +54,10 @@ export function Home() {
               <thead>
                 <tr className={styles.theadeLine}>
                   <th className={styles.thCols}>Asset</th>
-                  <th className={styles.thCols}>Market Value</th>
+                  <th className={styles.thCols}>Market Cap</th>
                   <th className={styles.thCols}>Price</th>
                   <th className={styles.thCols}>Volume</th>
-                  <th className={styles.thCols}>24h change</th>
+                  <th className={styles.thCols}>24h Change</th>
                 </tr>
               </thead>
               <tbody>

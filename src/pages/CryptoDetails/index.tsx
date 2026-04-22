@@ -92,7 +92,7 @@ export function CryptoDetails() {
               </span>
             </h2>
             <h2>
-              Mercado:
+              Market Cap:
               <span>
                 {compactPrice.format(Number(coin?.market_data.market_cap.usd))}
               </span>
@@ -106,7 +106,7 @@ export function CryptoDetails() {
               </span>
             </h2>
             <h2>
-              Mudança 24h:
+              24h Change:
               <span
                 className={
                   Number(coin?.market_data.price_change_percentage_24h) > 0
@@ -114,6 +114,7 @@ export function CryptoDetails() {
                     : styles.valueDrop
                 }
               >
+                {coin?.market_data.price_change_percentage_24h > 0 ? "+" : ""}
                 {Number(coin?.market_data.price_change_percentage_24h).toFixed(
                   2,
                 )}

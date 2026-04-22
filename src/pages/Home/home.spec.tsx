@@ -60,7 +60,7 @@ describe("testing the homepage (Unity)", () => {
     expect(screen.getByText("Bitcoin | BTC")).toBeInTheDocument();
     expect(screen.getByText(compactPrice.format(1000000))).toBeInTheDocument();
     expect(screen.getByText(formatNum.format(50000))).toBeInTheDocument();
-    expect(screen.getByText(`${(2.5).toFixed(2)}%`)).toBeInTheDocument();
+    expect(screen.getByText(`+${(2.5).toFixed(2)}%`)).toBeInTheDocument();
   });
 
   describe("Error Handling Logic (Home page)", () => {

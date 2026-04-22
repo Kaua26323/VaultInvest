@@ -46,13 +46,13 @@ describe("testing the TableTrElements Component (Unit)", () => {
     expect(
       screen.getByText(compactPrice.format(1000000000000)),
     ).toBeInTheDocument();
-    expect(screen.getByText(`${(2.5).toFixed(2)}%`)).toBeInTheDocument();
+    expect(screen.getByText(`+${(2.5).toFixed(2)}%`)).toBeInTheDocument();
   });
 
   it("should apply 'valueGoingUp' className when percentage is greater than 0", () => {
     renderComponent({ ...defaultProps, price_change_percentage_24h: 5.25 });
 
-    const percentageCell = screen.getByText("5.25%");
+    const percentageCell = screen.getByText("+5.25%");
 
     expect(percentageCell.className).toMatch("valueGoingUp");
   });
