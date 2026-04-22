@@ -1,7 +1,6 @@
-import type {
-  CryptoCoinsProps,
-  CryptoDetailsProps,
-} from "../../types/cryptoCoinsProps";
+import type { CryptoPricesProps } from "@/types/favoriteCrypto";
+import type { CryptoCoinsProps } from "../../types/cryptoCoinsProps";
+import type { CryptoDetailsProps } from "@/types/cryptoDetailsProps";
 
 const api = import.meta.env.DEV
   ? "/api/coingecko"
@@ -31,6 +30,25 @@ export async function getCoinById(
   const response = await fetch(
     `${api}/coins/${id}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`,
     { headers },
+  );
+
+  if (!response.ok) {
+    throw new Error(response.status.toString());
+  }
+
+  return await response.json();
+}
+
+export async function getFavoritesCryptosPrices(
+  IDs: string[],
+): Promise<CryptoPricesProps> {
+  const idsString = IDs.join(",");
+
+  const response = await fetch(
+    `${api}/simple/price?ids=${idsString}&vs_currencies=usd&include_24hr_change=true`,
+    {
+      headers,
+    },
   );
 
   if (!response.ok) {

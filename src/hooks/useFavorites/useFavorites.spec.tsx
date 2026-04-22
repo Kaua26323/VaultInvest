@@ -3,7 +3,7 @@ import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect, beforeEach, vi, afterEach } from "vitest";
 
 import { useFavorites } from "./index";
-import type { FavoriteCrypto } from "@/types/favoriteCrypto";
+import type { FavoriteCryptoProps } from "@/types/favoriteCrypto";
 
 vi.mock("sonner", () => ({
   toast: {
@@ -16,7 +16,7 @@ vi.mock("sonner", () => ({
 describe("testing the useFavorites Custom Hook", () => {
   const KEY = "@vaultinvest:favorites";
 
-  const mockCrypto: FavoriteCrypto = {
+  const mockCrypto: FavoriteCryptoProps = {
     id: "bitcoin",
     name: "Bitcoin",
     symbol: "btc",
@@ -87,7 +87,7 @@ describe("testing the useFavorites Custom Hook", () => {
       const incompleteCrypto = {
         id: "ethereum",
         name: "Ethereum",
-      } as FavoriteCrypto;
+      } as FavoriteCryptoProps;
 
       act(() => {
         result.current.saveCrypto(incompleteCrypto);

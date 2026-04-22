@@ -1,0 +1,181 @@
+.mainArea {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px 0;
+}
+
+.mainArea h1 {
+  text-align: center;
+}
+
+.cryptoBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface);
+  border-radius: 10px;
+  padding: 25px;
+  gap: 25px;
+
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px var(--accent);
+}
+
+.cardInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+}
+
+.cardInfo img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.cardTexts {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cardTexts h3 {
+  width: 100%;
+  margin: 0;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardTexts span {
+  margin: 0;
+  font-size: 1rem;
+  color: #929090;
+  font-weight: bold;
+}
+
+.cardPrices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.valueGoingUp {
+  color: var(--greenColor);
+}
+
+.valueDrop {
+  color: var(--redColor);
+}
+
+.skeletonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.skeleton {
+  animation: skeleton-pulse 1.2s ease-in-out infinite alternate;
+  border-radius: 4px;
+}
+
+.skeletonPrice {
+  width: 90px;
+  height: 1.1rem;
+}
+
+.skeletonChange {
+  width: 50px;
+  height: 0.9rem;
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    background-color: #2a2a35;
+  }
+  100% {
+    background-color: #3f3f5a;
+  }
+}
+
+.removeBtn {
+  background-color: transparent;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--redColor);
+  padding: 10px;
+  border: 1.5px solid var(--redColor);
+  border-radius: 4px;
+
+  transition: all 0.3s ease;
+}
+
+.removeBtn:hover {
+  background-color: var(--redColor);
+  color: white;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 16px;
+  background-color: var(--surface);
+  border-radius: 10px;
+  border: 1px dashed var(--border);
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.emptyState h2 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.emptyState p {
+  color: #929090;
+  max-width: 400px;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+.exploreBtn {
+  background-color: var(--accent);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.exploreBtn:hover {
+  transform: scale(1.03);
+  background-color: var(--primary);
+}
+
+@media (max-width: 550px) {
+  .cryptoBox {
+    padding: 0 45px;
+  }
+}

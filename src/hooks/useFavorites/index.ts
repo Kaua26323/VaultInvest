@@ -1,11 +1,11 @@
 import { toast } from "sonner";
 import { useState } from "react";
-import type { FavoriteCrypto } from "@/types/favoriteCrypto";
+import type { FavoriteCryptoProps } from "@/types/favoriteCrypto";
 
 const KEY = "@vaultinvest:favorites";
 
 export function useFavorites() {
-  const [favorites, setFavorites] = useState<FavoriteCrypto[]>(() => {
+  const [favorites, setFavorites] = useState<FavoriteCryptoProps[]>(() => {
     try {
       const storage = localStorage.getItem(KEY);
       return storage ? JSON.parse(storage) : [];
@@ -14,7 +14,7 @@ export function useFavorites() {
     }
   });
 
-  function saveCrypto(crypto: FavoriteCrypto): void {
+  function saveCrypto(crypto: FavoriteCryptoProps): void {
     if (!crypto.id || !crypto.name || !crypto.image || !crypto.symbol) {
       return;
     }
