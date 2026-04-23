@@ -62,7 +62,7 @@ Implemented a robust SEO strategy using semantic HTML and metadata optimization,
 ## ✨ Features
 
 - **Current Data Querying:** Cryptocurrency listing with data fetched directly from the CoinGecko API.
-- **Favorites Dashboard:** Save coins to a personal dashboard stored locally, fetching real-time prices upon visit.
+- **Favorites Dashboard:** Save assets to a locally stored personal dashboard, with prices fetched on every access.
 - **Functional Pagination:** Navigation between different asset pages.
 - **Coin Details:** Provides in-depth information about individual cryptocurrencies, such as images, and market data.
 - **Asset Search:** Search bar for quickly locating specific coins.
